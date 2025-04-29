@@ -15,7 +15,7 @@ public class Knight : Character
 {
     public override IWeapon GetWeapon()
     {
-        return new SwordFactory().CreateWeapon();
+        return new Sword();
     }
 }
 
@@ -23,7 +23,7 @@ public class Barbarian : Character
 {
     public override IWeapon GetWeapon()
     {
-        return new AxeFactory().CreateWeapon();
+        return new Axe();
     }
 }
 
@@ -48,23 +48,28 @@ public class Axe : IWeapon
     }
 }
 
-public abstract class WeaponFactory
+public class Battle
 {
-    public abstract IWeapon CreateWeapon();
-}
+  private Character character;
 
-public class SwordFactory : WeaponFactory
-{
-    public override IWeapon CreateWeapon()
+  public Battle(string realm)
+  {
+    if (realm == "Castle")
     {
-        return new Sword();
+      this.character = new Knight();
     }
-}
+    else if (realm == "Forest")
+    {
+      this.character = new Barbarian();
+    }
+    else
+    {
+      throw new ArgumentException("Invalid realm");
+    }
+  }
 
-public class AxeFactory : WeaponFactory
-{
-    public override IWeapon CreateWeapon()
-    {
-        return new Axe();
-    }
+  public void Fight()
+  {
+    this.character.Attack();
+  }
 }
