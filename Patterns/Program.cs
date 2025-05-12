@@ -7,10 +7,11 @@ public class Program
 {
     public static void Main(string[] args)
     {
-      var b = new KnightBuilder();
-      var d = new Director(b);
-      d.Construct();
-      var knight = b.GetResult();
-      Console.WriteLine($"Knight: {knight.Name}, Class: {knight.Class}, Mount: {knight.Mount}, Money: {knight.Money}");
+      var circle = new Circle(5);
+      var circleClone = circle.Clone();
+      Console.WriteLine($"Original Circle Radius: {circle.Radius}");
+      var rectangle = new Rectangle(10, 20);
+      var rectangleClone = rectangle.Clone();
+      Console.WriteLine($"Original Rectangle Width: {rectangle.Width}, Height: {rectangle.Height}");
     }
 }
