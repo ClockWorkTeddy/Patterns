@@ -1,3 +1,5 @@
+namespace Patterns.Creational;
+
 public interface IShape
 {
     IShape Clone();

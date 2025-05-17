@@ -1,5 +1,4 @@
-namespace Patterns.Creational.AbstractFactory;
-
+namespace Patterns.Creational;
 
 public interface IChair
 {

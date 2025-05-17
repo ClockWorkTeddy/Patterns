@@ -1,4 +1,4 @@
-namespace Patterns.Creational.FactoryMethod;
+namespace Patterns.Creational;
 
 public abstract class Character
 {
@@ -11,7 +11,7 @@ public abstract class Character
     }
 }
 
-public class Knight : Character
+public class DarkKnight : Character
 {
     public override IWeapon GetWeapon()
     {
@@ -56,7 +56,7 @@ public class Battle
   {
     if (realm == "Castle")
     {
-      this.character = new Knight();
+      this.character = new DarkKnight();
     }
     else if (realm == "Forest")
     {
