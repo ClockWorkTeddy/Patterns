@@ -2,7 +2,7 @@ namespace Patterns.Creational;
 
 public class Singleton
 {
-  private static Singleton _instance;
+  private static Singleton? _instance;
   private static int counter = 0;
 
   private int id;
