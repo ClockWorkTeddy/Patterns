@@ -1,26 +1,21 @@
 ﻿namespace Patterns;
 
+using System.Runtime.InteropServices;
 using Patterns.Creational;
 using Patterns.Structural;
+using Patterns.Behavioral;
 
 public class Program
 {
   public static void Main(string[] args)
   {
-    var Drawer = new Drawer();
-    var instanceBoxFactory = new InstanceBoxFactory();
-    var instanceViewModel1 = new InstanceViewModel(instanceBoxFactory, Drawer, 10, 20, "LittleBox", "Red");
-    var instanceViewModel2 = new InstanceViewModel(instanceBoxFactory, Drawer, 20, 40, "LittleBox", "Red");
-    var instanceViewModel3 = new InstanceViewModel(instanceBoxFactory, Drawer, 30, 60, "LittleBox", "Red");
-    var instanceViewModel4 = new InstanceViewModel(instanceBoxFactory, Drawer, 40, 80, "LittleBox", "Red");
-    var instanceViewModel5 = new InstanceViewModel(instanceBoxFactory, Drawer, 50, 100, "LittleBox", "Red");
-    var instanceViewModel6 = new InstanceViewModel(instanceBoxFactory, Drawer, 60, 120, "LittleBox", "Blue");
+    //Chain of Responsibility
+    IHandler handlerA = new ConcreteHandlerA();
+    IHandler handlerB = new ConcreteHandlerB();
+    handlerA.SetNext(handlerB);
 
-    instanceViewModel1.Draw();
-    instanceViewModel2.Draw();
-    instanceViewModel3.Draw();
-    instanceViewModel4.Draw();
-    instanceViewModel5.Draw();
-    instanceViewModel6.Draw();
+    System.Console.WriteLine(handlerA.Handle("A")); // Handled by ConcreteHandlerA
+    System.Console.WriteLine(handlerA.Handle("B")); // Handled by ConcreteHandlerB
+    System.Console.WriteLine(handlerA.Handle("C")); // This will return null since no handler can process "C"
   }
 }
