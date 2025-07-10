@@ -8,7 +8,7 @@ public interface IHandler
 
 public abstract class BaseHandler : IHandler
 {
-  private IHandler _nextHandler;
+  private IHandler? _nextHandler;
 
   public void SetNext(IHandler handler)
   {

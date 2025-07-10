@@ -9,9 +9,12 @@ public class Program
 {
   public static void Main(string[] args)
   {
-    var displayMessageButton = new DisplayMessageButton(
-      new DisplayCapitalizedMessageCommand("Hello, World!"));
-
-    displayMessageButton.Click();
+    var originator = new Originator();
+    var caretaker = new Caretaker(originator);
+    originator.State = "State 0";
+    caretaker.SaveMemento();
+    originator.State = "State 1";
+    caretaker.Undo();
+    Console.WriteLine($"Restored State: {originator.State}");
   }
 }
