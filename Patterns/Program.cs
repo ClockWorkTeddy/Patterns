@@ -9,12 +9,11 @@ public class Program
 {
   public static void Main(string[] args)
   {
-    var originator = new Originator();
-    var caretaker = new Caretaker(originator);
-    originator.State = "State 0";
-    caretaker.SaveMemento();
-    originator.State = "State 1";
-    caretaker.Undo();
-    Console.WriteLine($"Restored State: {originator.State}");
+    var initialState = new ConcreteStateA();
+    var context = new Context(initialState);
+    context.Request();
+    var newState = new ConcreteStateB();
+    context.SetState(newState);
+    context.Request();
   }
 }

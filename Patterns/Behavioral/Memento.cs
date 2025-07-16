@@ -47,7 +47,7 @@ public class Caretaker
   }
 
   public void SaveMemento()
-  {
+  { 
     _mementos.Add(_originator.Save());
   }
 
